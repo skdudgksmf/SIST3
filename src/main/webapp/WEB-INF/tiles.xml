@@ -8,6 +8,21 @@
     <put-attribute name="body" value="/WEB-INF/tiles/body.jsp"/>
     <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
   </definition>
+  
+  <definition name="not" template="/WEB-INF/drugflow/emotion_main.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="drugflow/emotion_main" extends="not">
+     <put-attribute name="body" value="/WEB-INF/drugflow/emotion_main.jsp"></put-attribute>
+  </definition>
+  
+   <definition name="notto" template="/WEB-INF/favor/favor_chart.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="favor/favor_chart" extends="notto">
+     <put-attribute name="body" value="/WEB-INF/favor/favor_chart.jsp"></put-attribute>
+  </definition>
+  
   <definition name="*/*" extends="main">
     <put-attribute name="body" value="/WEB-INF/{1}/{2}.jsp"/>
   </definition>

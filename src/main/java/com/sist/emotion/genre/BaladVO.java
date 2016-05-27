@@ -1,6 +1,6 @@
 package com.sist.emotion.genre;
 
-public class JpopVO {
+public class BaladVO {
 	private String no;
 	private String title;
 	private String artist;

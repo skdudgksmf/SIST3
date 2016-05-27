@@ -1,6 +1,6 @@
 package com.sist.emotion.genre;
 
-public class PopVO {
+public class RockVO {
 	private String no;
 	private String title;
 	private String artist;

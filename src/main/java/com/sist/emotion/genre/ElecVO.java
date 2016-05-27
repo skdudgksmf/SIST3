@@ -1,6 +1,6 @@
 package com.sist.emotion.genre;
 
-public class IndiMusicVO {
+public class ElecVO {
 	private String no;
 	private String title;
 	private String artist;

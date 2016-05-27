@@ -1,6 +1,6 @@
 package com.sist.emotion.genre;
 
-public class CcmVO {
+public class RapHipVO {
 	private String no;
 	private String title;
 	private String artist;

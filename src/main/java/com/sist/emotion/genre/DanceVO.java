@@ -1,6 +1,6 @@
 package com.sist.emotion.genre;
 
-public class JazzVO {
+public class DanceVO {
 	private String no;
 	private String title;
 	private String artist;

@@ -28,18 +28,30 @@ public class EmotionListManager {
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
+				String al=albelem.text();
 				
-				
-				PlayFulVO vo=new PlayFulVO();
-				vo.setNo(Integer.parseInt(nelem.text()));
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					PlayFulVO vo=new PlayFulVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
+				else
+				{
+					String album=al;
+					PlayFulVO vo=new PlayFulVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
@@ -65,17 +77,30 @@ public class EmotionListManager {
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
+				String al=albelem.text();
 				
-				LightVO vo=new LightVO();
-				vo.setNo(Integer.parseInt(nelem.text()));
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					LightVO vo=new LightVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
+				else
+				{
+					String album=al;
+					LightVO vo=new LightVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
@@ -102,17 +127,30 @@ public class EmotionListManager {
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
+				String al=albelem.text();
 				
-				InLoveVO vo=new InLoveVO();
-				vo.setNo(Integer.parseInt(nelem.text()));
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					InLoveVO vo=new InLoveVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
+				else
+				{
+					String album=al;
+					InLoveVO vo=new InLoveVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
@@ -139,17 +177,30 @@ public class EmotionListManager {
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
+				String al=albelem.text();
 				
-				PeacefulVO vo=new PeacefulVO();
-				vo.setNo(Integer.parseInt(nelem.text()));
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					PeacefulVO vo=new PeacefulVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
+				else
+				{
+					String album=al;
+					PeacefulVO vo=new PeacefulVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
@@ -177,17 +228,30 @@ public class EmotionListManager {
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
+				String al=albelem.text();
 				
-				DreamyVO vo=new DreamyVO();
-				vo.setNo(Integer.parseInt(nelem.text()));
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					DreamyVO vo=new DreamyVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
+				else
+				{
+					String album=al;
+					DreamyVO vo=new DreamyVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
@@ -215,17 +279,30 @@ public class EmotionListManager {
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
+				String al=albelem.text();
 				
-				EmotionalVO vo=new EmotionalVO();
-				vo.setNo(Integer.parseInt(nelem.text()));
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					EmotionalVO vo=new EmotionalVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
+				else
+				{
+					String album=al;
+					EmotionalVO vo=new EmotionalVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
@@ -253,17 +330,30 @@ public class EmotionListManager {
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
+				String al=albelem.text();
 				
-				DarkVO vo=new DarkVO();
-				vo.setNo(Integer.parseInt(nelem.text()));
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					DarkVO vo=new DarkVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
+				else
+				{
+					String album=al;
+					DarkVO vo=new DarkVO();
+					vo.setNo(Integer.parseInt(nelem.text()));
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{

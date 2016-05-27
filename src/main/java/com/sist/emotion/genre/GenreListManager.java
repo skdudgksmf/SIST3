@@ -13,335 +13,299 @@ import org.springframework.stereotype.Component;
 @Component
 public class GenreListManager {
 	
-	public List<KpopVO> GenKpop()
+	public List<DanceVO> GenDance()
 	{
-		List<KpopVO> list=new ArrayList<KpopVO>();
+		List<DanceVO> list=new ArrayList<DanceVO>();
 		try
 		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/Kpop/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
+			Document doc=Jsoup.connect("http://www.genie.co.kr/genre/L0101").get();
+			Elements noElem=doc.select("div.list span.number");
+			Elements titleElem=doc.select("div.list span.music-info span.music_area span.music a.title");
+			Elements artistElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.artist");
+			Elements albumElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.albumtitle");
 			
 			for(int i=0;i<noElem.size();i++)
 			{
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
+				String al=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
-				
-				KpopVO vo=new KpopVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					DanceVO vo=new DanceVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+					
+				}
+				else
+				{
+					String album=al;
+					DanceVO vo=new DanceVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
-			System.out.println("GenKpop(): "+ex.getMessage());
+			System.out.println("GenDance(): "+ex.getMessage());
 		}
 		return list;
 	}
 	
 	
-	public List<PopVO> GenPop()
+	public List<BaladVO> GenBalad()
 	{
-		List<PopVO> list=new ArrayList<PopVO>();
+		List<BaladVO> list=new ArrayList<BaladVO>();
 		try
 		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/Pop/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
+			Document doc=Jsoup.connect("http://www.genie.co.kr/genre/L0102").get();
+			Elements noElem=doc.select("div.list span.number");
+			Elements titleElem=doc.select("div.list span.music-info span.music_area span.music a.title");
+			Elements artistElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.artist");
+			Elements albumElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.albumtitle");
 			
 			for(int i=0;i<noElem.size();i++)
 			{
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
+				String al=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
-				
-				PopVO vo=new PopVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					BaladVO vo=new BaladVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+					
+				}
+				else
+				{
+					String album=al;
+					BaladVO vo=new BaladVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
-			System.out.println("GenPop(): "+ex.getMessage());
-		}
-		return list;
-	}
-	
-	
-	
-	public List<JpopVO> GenJpop()
-	{
-		List<JpopVO> list=new ArrayList<JpopVO>();
-		try
-		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/Jpop/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
-			
-			for(int i=0;i<noElem.size();i++)
-			{
-				Element nelem=noElem.get(i);
-				Element telem=titleElem.get(i);
-				Element albelem=albumElem.get(i);
-				String album=albelem.text();
-				Element artelem=artistElem.get(i);
-				String artist=artelem.text();
-				
-				JpopVO vo=new JpopVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
-			}
-		}catch(Exception ex)
-		{
-			System.out.println("GenJpop(): "+ex.getMessage());
+			System.out.println("GenBalad(): "+ex.getMessage());
 		}
 		return list;
 	}
 	
 	
 	
-	public List<OSTVO> GenOst()
+	public List<RapHipVO> GenRapHip()
 	{
-		List<OSTVO> list=new ArrayList<OSTVO>();
+		List<RapHipVO> list=new ArrayList<RapHipVO>();
 		try
 		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/Ost/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
+			Document doc=Jsoup.connect("http://www.genie.co.kr/genre/L0204").get();
+			Elements noElem=doc.select("div.list span.number");
+			Elements titleElem=doc.select("div.list span.music-info span.music_area span.music a.title");
+			Elements artistElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.artist");
+			Elements albumElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.albumtitle");
 			
 			for(int i=0;i<noElem.size();i++)
 			{
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
+				String al=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
-				
-				OSTVO vo=new OSTVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					RapHipVO vo=new RapHipVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+					
+				}
+				else
+				{
+					String album=al;
+					RapHipVO vo=new RapHipVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
-			System.out.println("GenOst(): "+ex.getMessage());
+			System.out.println("GenRapHip(): "+ex.getMessage());
 		}
 		return list;
 	}
 	
 	
 	
-	public List<ClassicVO> GenClassic()
+	public List<RnBVO> GenRnB()
 	{
-		List<ClassicVO> list=new ArrayList<ClassicVO>();
+		List<RnBVO> list=new ArrayList<RnBVO>();
 		try
 		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/Classical/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
+			Document doc=Jsoup.connect("http://www.genie.co.kr/genre/L0203").get();
+			Elements noElem=doc.select("div.list span.number");
+			Elements titleElem=doc.select("div.list span.music-info span.music_area span.music a.title");
+			Elements artistElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.artist");
+			Elements albumElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.albumtitle");
 			
 			for(int i=0;i<noElem.size();i++)
 			{
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
+				String al=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
-				
-				ClassicVO vo=new ClassicVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					RnBVO vo=new RnBVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+					
+				}
+				else
+				{
+					String album=al;
+					RnBVO vo=new RnBVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
-			System.out.println("GenClassic(): "+ex.getMessage());
+			System.out.println("GenRnB(): "+ex.getMessage());
 		}
 		return list;
 	}
 	
 	
 	
-	public List<JazzVO> GenJazz()
+	public List<RockVO> GenRock()
 	{
-		List<JazzVO> list=new ArrayList<JazzVO>();
+		List<RockVO> list=new ArrayList<RockVO>();
 		try
 		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/Jazz/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
+			Document doc=Jsoup.connect("http://www.genie.co.kr/genre/L0202").get();
+			Elements noElem=doc.select("div.list span.number");
+			Elements titleElem=doc.select("div.list span.music-info span.music_area span.music a.title");
+			Elements artistElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.artist");
+			Elements albumElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.albumtitle");
 			
 			for(int i=0;i<noElem.size();i++)
 			{
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
+				String al=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
-				
-				JazzVO vo=new JazzVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					RockVO vo=new RockVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+					
+				}
+				else
+				{
+					String album=al;
+					RockVO vo=new RockVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
-			System.out.println("GenJazz(): "+ex.getMessage());
+			System.out.println("GenRock(): "+ex.getMessage());
 		}
 		return list;
 	}
 	
 	
 	
-	
-	public List<WorldMusicVO> GenWorld()
+	public List<ElecVO> GenElec()
 	{
-		List<WorldMusicVO> list=new ArrayList<WorldMusicVO>();
+		List<ElecVO> list=new ArrayList<ElecVO>();
 		try
 		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/World/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
+			Document doc=Jsoup.connect("http://www.genie.co.kr/genre/L0205").get();
+			Elements noElem=doc.select("div.list span.number");
+			Elements titleElem=doc.select("div.list span.music-info span.music_area span.music a.title");
+			Elements artistElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.artist");
+			Elements albumElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.albumtitle");
 			
 			for(int i=0;i<noElem.size();i++)
 			{
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
+				String al=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
-				
-				WorldMusicVO vo=new WorldMusicVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					ElecVO vo=new ElecVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+					
+				}
+				else
+				{
+					String album=al;
+					ElecVO vo=new ElecVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);
+				}
 			}
 		}catch(Exception ex)
 		{
-			System.out.println("GenWorld(): "+ex.getMessage());
-		}
-		return list;
-	}
-	
-	
-	
-	
-	public List<CcmVO> GenCcm()
-	{
-		List<CcmVO> list=new ArrayList<CcmVO>();
-		try
-		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/Ccm/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
-			
-			for(int i=0;i<noElem.size();i++)
-			{
-				Element nelem=noElem.get(i);
-				Element telem=titleElem.get(i);
-				Element albelem=albumElem.get(i);
-				String album=albelem.text();
-				Element artelem=artistElem.get(i);
-				String artist=artelem.text();
-				
-				CcmVO vo=new CcmVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
-			}
-		}catch(Exception ex)
-		{
-			System.out.println("GenCcm(): "+ex.getMessage());
-		}
-		return list;
-	}
-	
-	
-	
-	
-	public List<IndiMusicVO> GenIndi()
-	{
-		List<IndiMusicVO> list=new ArrayList<IndiMusicVO>();
-		try
-		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/Indie/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
-			
-			for(int i=0;i<noElem.size();i++)
-			{
-				Element nelem=noElem.get(i);
-				Element telem=titleElem.get(i);
-				Element albelem=albumElem.get(i);
-				String album=albelem.text();
-				Element artelem=artistElem.get(i);
-				String artist=artelem.text();
-				
-				IndiMusicVO vo=new IndiMusicVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
-			}
-		}catch(Exception ex)
-		{
-			System.out.println("GenIndi(): "+ex.getMessage());
+			System.out.println("GenElec(): "+ex.getMessage());
 		}
 		return list;
 	}
@@ -349,40 +313,103 @@ public class GenreListManager {
 	
 	
 	
-	public List<TrotVO> GenTrot()
+	public List<ForkVO> GenFork()
 	{
-		List<TrotVO> list=new ArrayList<TrotVO>();
+		List<ForkVO> list=new ArrayList<ForkVO>();
 		try
 		{
-			Document doc=Jsoup.connect("http://www.mnet.com/chart/Trot/all/").get();
-			Elements noElem=doc.select("div.MMLIRankNum_Box span.MMLI_RankNum");
-			Elements titleElem=doc.select("div.MMLITitleSong_Box a.MMLI_Song");
-			Elements artistElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Artist");
-			Elements albumElem=doc.select("div.MMLITitle_Info a.MMLIInfo_Album");
+			Document doc=Jsoup.connect("http://www.genie.co.kr/genre/L0108").get();
+			Elements noElem=doc.select("div.list span.number");
+			Elements titleElem=doc.select("div.list span.music-info span.music_area span.music a.title");
+			Elements artistElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.artist");
+			Elements albumElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.albumtitle");
 			
 			for(int i=0;i<noElem.size();i++)
 			{
 				Element nelem=noElem.get(i);
 				Element telem=titleElem.get(i);
 				Element albelem=albumElem.get(i);
-				String album=albelem.text();
+				String al=albelem.text();
 				Element artelem=artistElem.get(i);
 				String artist=artelem.text();
-				
-				TrotVO vo=new TrotVO();
-				vo.setNo(nelem.text());
-				vo.setTitle(telem.text());
-				vo.setAlbum(album);
-				vo.setArtist(artist);
-				list.add(vo);
-				
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					ForkVO vo=new ForkVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);	
+				}
+				else
+				{
+					String album=al;
+					ForkVO vo=new ForkVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);					
+				}
 			}
 		}catch(Exception ex)
 		{
-			System.out.println("GenTrot(): "+ex.getMessage());
+			System.out.println("GenFork(): "+ex.getMessage());
 		}
 		return list;
 	}
+	
+	
+	
+	
+	public List<PoppVO> GenPopp()
+	{
+		List<PoppVO> list=new ArrayList<PoppVO>();
+		try
+		{
+			Document doc=Jsoup.connect("http://www.genie.co.kr/genre/L0201").get();
+			Elements noElem=doc.select("div.list span.number");
+			Elements titleElem=doc.select("div.list span.music-info span.music_area span.music a.title");
+			Elements artistElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.artist");
+			Elements albumElem=doc.select("div.list span.music-info span.music_area span.music span.meta a.albumtitle");
+			
+			for(int i=0;i<noElem.size();i++)
+			{
+				Element nelem=noElem.get(i);
+				Element telem=titleElem.get(i);
+				Element albelem=albumElem.get(i);
+				String al=albelem.text();
+				Element artelem=artistElem.get(i);
+				String artist=artelem.text();
+				if(al.length()>20)
+				{
+					String album=al.substring(0, 19);
+					PoppVO vo=new PoppVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);	
+				}
+				else
+				{
+					String album=al;
+					PoppVO vo=new PoppVO();
+					vo.setNo(nelem.text());
+					vo.setTitle(telem.text());
+					vo.setAlbum(album);
+					vo.setArtist(artist);
+					list.add(vo);					
+				}
+			}
+		}catch(Exception ex)
+		{
+			System.out.println("GenPopp(): "+ex.getMessage());
+		}
+		return list;
+	}
+	
 	
 	
 	

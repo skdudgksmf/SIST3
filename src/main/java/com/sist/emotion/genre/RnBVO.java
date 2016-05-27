@@ -1,6 +1,6 @@
 package com.sist.emotion.genre;
 
-public class ClassicVO {
+public class RnBVO {
 	private String no;
 	private String title;
 	private String artist;

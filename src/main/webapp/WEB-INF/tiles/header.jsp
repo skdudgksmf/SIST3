@@ -13,7 +13,7 @@
 			<li>DRIVE</li>
 			<li>MY TRAIN</li>
 			<li><a href="emotion_main.do">DRUG FLOW</a></li>
-			<li>FAVOR</li>
+			<li><a href="favor_chart.do">FAVOR</a></li>
 			<li>COMMUNITY</li>
 			<li>SEARCH</li>
 		</ul>

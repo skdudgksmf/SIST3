@@ -14,12 +14,13 @@ public class EmotionManager {
 			List<EmotionVO> list=new ArrayList<EmotionVO>();
 			try
 			{
-				String emoti[]={"½Å³ª´Â", "°æÄèÇÑ","»ç¶ûÀ¸·Î","Æí¾ÈÇÑ","¸ùÈ¯Àû","°¨¼ºÀû","¾îµÎ¿î"};
-				
+				String emoti[]={"ì‹ ë‚˜ëŠ”", "ê²½ì¾Œí•œ","ì‚¬ë‘ìœ¼ë¡œ","í¸ì•ˆí•œ","ëª½í™˜ì ","ê°ì„±ì ","ì–´ë‘ìš´"};
+				int ecount[]={0,0,0,0,0,0,0};
 				for(int i=0;i<emoti.length;i++)
 				{
 					EmotionVO vo=new EmotionVO();
 					vo.setEmotion(emoti[i]);
+					vo.setEcount(ecount[i]);
 					list.add(vo);
 				}
 			}catch(Exception ex)
@@ -35,17 +36,19 @@ public class EmotionManager {
 			List<GenreVO> list=new ArrayList<GenreVO>();
 			try
 			{
-				String genti[]={"°¡¿ä", "ÆË", "J-POP","OST","Å¬·¡½Ä","ÀçÁî","¿ùµå¹ÂÁ÷","CCM","ÀÎµğ¹ÂÁ÷","Æ®·ÎÆ®"};
-			
+				String genti[]={"ëŒ„ìŠ¤", "ë°œë¼ë“œ", "ë©/í™í•©","ì•Œì•¤ë¹„/ì†Œìš¸","ë½","ì¼ë™íŠ¸ë™","í¬í¬","íŒ"};
+				int gcount[]={0,0,0,0,0,0,0,0};
+				
 				for(int i=0;i<genti.length;i++)
 				{
 					GenreVO vo=new GenreVO();
 					vo.setGenre(genti[i]);
+					vo.setGcount(gcount[i]);
 					list.add(vo);
 				}
 			}catch(Exception ex)
 			{
-				System.out.println("Emotiontitle(): "+ex.getMessage());
+				System.out.println("Genretitle(): "+ex.getMessage());
 			}
 			return list;
 		}
